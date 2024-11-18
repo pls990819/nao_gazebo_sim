@@ -1,0 +1,11 @@
+<launch>
+  
+    <!-- Launch Gazebo  -->
+<!--     <include file="$(find nao_gazebo)/launch/nao_world_fixed_base.launch" /> -->
+    <include file="$(find nao_gazebo)/launch/nao_world.launch" />
+<!--     <include file="$(find nao_gazebo)/launch/nao_worreld_fixed_twofoot.launch" /> -->
+    <!-- <include file="$(find nao_gazebo)/launch/nao_world_rightleg.launch" /> -->
+    <!-- ros_control trajectory control dof arm launch file -->
+    <include file="$(find nao_gazebo)/launch/controller.launch" />
+    
+</launch>

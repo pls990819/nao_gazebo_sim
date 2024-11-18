@@ -1,0 +1,47 @@
+<launch>
+
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="true"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+  <!-- We resume the logic in empty_world.launch -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- <param name="robot_description" textfile="$(find nao_description)/urdf/nao.urdf" /> -->
+  <param name="robot_description" textfile="$(find nao_description)/urdf/nao_simple.urdf" />
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+	args="-urdf 
+	-x 0
+	-y 0
+	-z 0.3311
+  -J LShoulderPitch 1.570796
+  -J LElbowRoll -0.523598
+  -J LElbowYaw -1.570796
+	-J RShoulderPitch 1.570796
+  -J RElbowRoll 0.523598
+  -J RElbowYaw 1.570796
+	-model nao -param robot_description"/> 
+</launch>
+<!-- 	-J LHipPitch -0.785398 -->
+<!-- 	-J LKneePitch 1.570796 -->
+<!-- 	-J LAnklePitch -0.785398 -->
+<!-- 	-J RHipPitch -0.785398 -->
+<!-- 	-J RKneePitch 1.570796 -->
+<!-- 	-J RAnklePitch -0.785398 -->
+<!-- 	-J LShoulderPitch 1.256637 -->
+<!--     -J LElbowRoll -0.523598 -->
+<!--     -J LElbowYaw -1.570796 -->
+<!-- 	-J RShoulderPitch 1.256637 -->
+<!--     -J RElbowRoll 0.523598 -->
+<!--     -J RElbowYaw 1.570796 -->

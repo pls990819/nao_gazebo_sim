@@ -1,0 +1,26 @@
+<launch>
+    <!-- Load joint state controller -->
+    <rosparam file="$(find nao_gazebo)/config/nao_effort_controllers.yaml" command="load"/>
+
+
+<!--     <node name="joint_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" -->
+<!--           output="screen" ns="/nao" args="joint_state_controller" /> -->
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+        <remap from="/joint_states" to="/nao/joint_states" />
+    </node>
+
+    <node name="nao_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" ns="/nao" args="joint_state_controller HeadYaw_effort_controller HeadPitch_effort_controller
+    LShoulderPitch_effort_controller LShoulderRoll_effort_controller
+    LElbowYaw_effort_controller LWristYaw_effort_controller LElbowRoll_effort_controller 
+    RShoulderPitch_effort_controller RShoulderRoll_effort_controller
+    RElbowYaw_effort_controller RWristYaw_effort_controller RElbowRoll_effort_controller 
+    LHipYawPitch_effort_controller LHipRoll_effort_controller LHipPitch_effort_controller 
+    LKneePitch_effort_controller LAnklePitch_effort_controller LAnkleRoll_effort_controller 
+    RHipYawPitch_effort_controller RHipRoll_effort_controller RHipPitch_effort_controller 
+    RKneePitch_effort_controller RAnklePitch_effort_controller RAnkleRoll_effort_controller "/>
+    
+</launch>
+

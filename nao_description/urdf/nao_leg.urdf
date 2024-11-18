@@ -1,0 +1,626 @@
+<?xml version="1.0" ?>
+<robot name="NaoH25V40" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <joint name="LHipYawPitch" type="revolute">
+    <parent link="torso"/>
+    <child link="LPelvis"/>
+    <origin rpy="0 0 0" xyz="0 0.05 -0.085"/>
+    <axis xyz="0 0.707106 -0.707106"/>
+    <limit effort="3.348" lower="-1.14529" upper="0.740718" velocity="4.16174"/>
+  </joint>
+  <link name="LPelvis">
+    <inertial>
+      <mass value="0.06981"/>
+      <inertia ixx="2.3407e-05" ixy="1.07922e-06" ixz="-1.76003e-06" iyy="4.76355e-05" iyz="2.76058e-06" izz="4.97021e-05"/>
+      <origin rpy="0 0 0" xyz="-0.00781 -0.01114 0.02661"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LHipYawPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LHipYawPitch_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="LHipRoll" type="revolute">
+    <parent link="LPelvis"/>
+    <child link="LHip"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="1.0 0 0"/>
+    <limit effort="3.348" lower="-0.379435" upper="0.79046" velocity="4.16174"/>
+  </joint>
+  <link name="LHip">
+    <inertial>
+      <mass value="0.13053"/>
+      <inertia ixx="2.41106e-05" ixy="-6.08684e-07" ixz="6.33119e-06" iyy="6.34892e-05" iyz="-1.99137e-07" izz="5.67694e-05"/>
+      <origin rpy="0 0 0" xyz="-0.01549 0.00029 -0.00515"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LHipRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LHipRoll_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="LHipPitch" type="revolute">
+    <parent link="LHip"/>
+    <child link="LThigh"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 1.0 0"/>
+    <limit effort="3.023" lower="-1.53589" upper="0.48398" velocity="6.40239"/>
+  </joint>
+  <link name="LThigh">
+    <inertial>
+      <mass value="0.38968"/>
+      <inertia ixx="0.000509844" ixy="2.11296e-06" ixz="5.64129e-05" iyy="0.000465358" iyz="-7.91029e-06" izz="0.000301098"/>
+      <origin rpy="0 0 0" xyz="0.00138 0.00221 -0.05373"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LHipPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LHipPitch_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="LKneePitch" type="revolute">
+    <parent link="LThigh"/>
+    <child link="LTibia"/>
+    <origin rpy="0 0 0" xyz="0 0 -0.1"/>
+    <axis xyz="0 1.0 0"/>
+    <limit effort="3.023" lower="-0.0923279" upper="2.11255" velocity="6.40239"/>
+  </joint>
+  <link name="LTibia">
+    <inertial>
+      <mass value="0.29142"/>
+      <inertia ixx="0.000470586" ixy="3.60392e-06" ixz="-2.86648e-05" iyy="0.000412654" iyz="7.13013e-06" izz="0.000185772"/>
+      <origin rpy="0 0 0" xyz="0.00453 0.00225 -0.04936"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LKneePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LKneePitch_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="LAnklePitch" type="revolute">
+    <parent link="LTibia"/>
+    <child link="LAnklePitch_link"/>
+    <origin rpy="0 0 0" xyz="0 0 -0.1029"/>
+    <axis xyz="0 1.0 0"/>
+    <limit effort="3.023" lower="-1.18944" upper="0.922581" velocity="6.40239"/>
+  </joint>
+  <link name="LAnklePitch_link">
+    <inertial>
+      <mass value="0.13416"/>
+      <inertia ixx="3.22034e-05" ixy="-8.83212e-09" ixz="4.27549e-06" iyy="6.7943e-05" iyz="2.84849e-07" izz="5.48269e-05"/>
+      <origin rpy="0 0 0" xyz="0.00045 0.00029 0.00685"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LAnklePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LAnklePitch_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="LAnkleRoll" type="revolute">
+    <parent link="LAnklePitch_link"/>
+    <child link="l_ankle"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="1.0 0 0"/>
+    <limit effort="3.348" lower="-0.397761" upper="0.768992" velocity="4.16174"/>
+  </joint>
+  <link name="l_ankle">
+    <inertial>
+      <mass value="0.16184"/>
+      <inertia ixx="9.78911e-05" ixy="7.88039e-06" ixz="6.1279e-06" iyy="0.000369977" iyz="1.44233e-06" izz="0.000419417"/>
+      <origin rpy="0 0 0" xyz="0.02542 0.0033 -0.03239"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LAnkleRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/LAnkleRoll_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="RHipYawPitch" type="revolute">
+    <parent link="torso"/>
+    <child link="RPelvis"/>
+    <origin rpy="0 0 0" xyz="0 -0.05 -0.085"/>
+    <axis xyz="0 0.707106 0.707106"/>
+    <limit effort="3.348" lower="-1.14529" upper="0.740718" velocity="4.16174"/>
+    <mimic joint="LHipYawPitch" multiplier="1.0" offset="0"/>
+  </joint>
+  <link name="RPelvis">
+    <inertial>
+      <mass value="0.06981"/>
+      <inertia ixx="3.18766e-05" ixy="-1.07152e-06" ixz="-1.77295e-06" iyy="5.18361e-05" iyz="-7.00664e-06" izz="5.39657e-05"/>
+      <origin rpy="0 0 0" xyz="-0.00781 0.01114 0.02661"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RHipYawPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RHipYawPitch_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="RHipRoll" type="revolute">
+    <parent link="RPelvis"/>
+    <child link="RHip"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="1.0 0 0"/>
+    <limit effort="3.348" lower="-0.79046" upper="0.379435" velocity="4.16174"/>
+  </joint>
+  <link name="RHip">
+    <inertial>
+      <mass value="0.13053"/>
+      <inertia ixx="2.41136e-05" ixy="5.67164e-07" ixz="6.30461e-06" iyy="6.34886e-05" iyz="1.97457e-07" izz="5.6773e-05"/>
+      <origin rpy="0 0 0" xyz="-0.01549 -0.00029 -0.00515"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RHipRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RHipRoll_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="RHipPitch" type="revolute">
+    <parent link="RHip"/>
+    <child link="RThigh"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 1.0 0"/>
+    <limit effort="3.0226" lower="-1.53589" upper="0.48398" velocity="6.40239"/>
+  </joint>
+  <link name="RThigh">
+    <inertial>
+      <mass value="0.38968"/>
+      <inertia ixx="0.000510607" ixy="-2.02799e-06" ixz="5.69893e-05" iyy="0.0004665" iyz="7.09563e-06" izz="0.000301333"/>
+      <origin rpy="0 0 0" xyz="0.00138 -0.00221 -0.05373"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RHipPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RHipPitch_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="RKneePitch" type="revolute">
+    <parent link="RThigh"/>
+    <child link="RTibia"/>
+    <origin rpy="0 0 0" xyz="0 0 -0.1"/>
+    <axis xyz="0 1.0 0"/>
+    <limit effort="3.0226" lower="-0.0923279" upper="2.11255" velocity="6.40239"/>
+  </joint>
+  <link name="RTibia">
+    <inertial>
+      <mass value="0.29142"/>
+      <inertia ixx="0.000471336" ixy="-3.8668e-06" ixz="-3.71648e-05" iyy="0.00041228" iyz="-6.11093e-06" izz="0.000183997"/>
+      <origin rpy="0 0 0" xyz="0.00453 -0.00225 -0.04936"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RKneePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RKneePitch_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="RAnklePitch" type="revolute">
+    <parent link="RTibia"/>
+    <child link="RAnklePitch_link"/>
+    <origin rpy="0 0 0" xyz="0 0 -0.1029"/>
+    <axis xyz="0 1.0 0"/>
+    <limit effort="3.0226" lower="-1.1863" upper="0.932006" velocity="6.40239"/>
+  </joint>
+  <link name="RAnklePitch_link">
+    <inertial>
+      <mass value="0.13416"/>
+      <inertia ixx="3.22017e-05" ixy="4.68321e-08" ixz="4.28821e-06" iyy="6.79885e-05" iyz="-2.71089e-07" izz="5.48747e-05"/>
+      <origin rpy="0 0 0" xyz="0.00045 -0.00029 0.00685"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RAnklePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RAnklePitch_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="RAnkleRoll" type="revolute">
+    <parent link="RAnklePitch_link"/>
+    <child link="r_ankle"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="1.0 0 0"/>
+    <limit effort="3.348" lower="-0.768992" upper="0.397761" velocity="4.16174"/>
+  </joint>
+  <link name="r_ankle">
+    <inertial>
+      <mass value="0.16184"/>
+      <inertia ixx="9.77513e-05" ixy="-7.70106e-06" ixz="5.88169e-06" iyy="0.000369108" iyz="-1.55058e-06" izz="0.000418695"/>
+      <origin rpy="0 0 0" xyz="0.02542 -0.0033 -0.03239"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RAnkleRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/RAnkleRoll_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <link name="base_link"/>
+  <joint name="base_link_fixedjoint" type="fixed">
+    <parent link="base_link"/>
+    <child link="torso"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <link name="torso">
+    <inertial>
+      <mass value="1.04956"/>
+      <inertia ixx="0.00308361" ixy="1.43116e-05" ixz="-3.30211e-05" iyy="0.0028835" iyz="-2.70793e-05" izz="0.0015924"/>
+      <origin rpy="0 0 0" xyz="-0.00413 0 0.04342"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/Torso.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://nao_description/meshes/V40/Torso_0.10.stl" scale="0.1 0.1 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+
+
+  <!-- GAZEBO ROS CONTROL AND IMU PLUGIN -->
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/nao</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <!-- HEAD -->
+  <transmission name="HeadYaw_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="HeadYaw">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="HeadYaw_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>150.27</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="HeadPitch_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="HeadPitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="HeadPitch_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>173.22</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LShoulderPitch_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LShoulderPitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LShoulderPitch_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>150.27</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LShoulderRoll_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LShoulderRoll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LShoulderRoll_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>173.22</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LElbowYaw_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LElbowYaw">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LElbowYaw_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>150.27</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LElbowRoll_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LElbowRoll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LElbowRoll_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>173.22</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LWristYaw_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LWristYaw">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LWristYaw_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>50.61</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LHand_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LHand">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LHand_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>36.24</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RShoulderPitch_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RShoulderPitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RShoulderPitch_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>150.27</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RShoulderRoll_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RShoulderRoll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RShoulderRoll_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>173.22</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RElbowYaw_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RElbowYaw">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RElbowYaw_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>150.27</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RElbowRoll_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RElbowRoll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RElbowRoll_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>173.22</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RWristYaw_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RWristYaw">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RWristYaw_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>50.61</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RHand_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RHand">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RHand_Motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>36.24</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LHipYawPitch_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LHipYawPitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LHipYawPitch_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>201.3</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LHipRoll_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LHipRoll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LHipRoll_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>201.3</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LHipPitch_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LHipPitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LHipPitch_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>130.85</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LKneePitch_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LKneePitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LKneePitch_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>130.85</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LAnklePitch_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LAnklePitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LAnklePitch_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>130.85</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="LAnkleRoll_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LAnkleRoll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LAnkleRoll_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>201.3</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RHipYawPitch_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RHipYawPitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RHipYawPitch_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>201.3</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RHipRoll_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RHipRoll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RHipRoll_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>201.3</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RHipPitch_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RHipPitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RHipPitch_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>130.85</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RKneePitch_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RKneePitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RKneePitch_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>130.85</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RAnklePitch_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RAnklePitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RAnklePitch_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>130.85</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RAnkleRoll_Transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RAnkleRoll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RAnkleRoll_Motor">
+      <!-- Dummy Values -->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>201.3</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>
